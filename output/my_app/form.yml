@@ -29,4 +29,4 @@ attributes:
     cacheable: false
     data-target-file-type: dirs  # Valid values are: files, dirs, or both
     value: <%= ENV['HOME'] %>
-    help: "Select your project directory; if that is your home directory, leave as is. </br>DO NOT LEAVE BLANK!"
+    help: "Select your project directory; if that is your home directory, leave as is. </br>DO NOT LEAVE BLANK!"t 
