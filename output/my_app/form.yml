@@ -1,0 +1,32 @@
+cluster: "baobab"
+
+form: 
+  - input
+  - output
+  - estimated_run_time
+  - work_dir
+
+
+attributes:
+
+  input:
+    widget: "text_field"
+    label: "Input File Name"
+    help: "Where the data is coming from (relative to the working directory field above). Example: benchmark.in" 
+
+  output:
+    widget: "text_field"
+    label: "Output File Name"
+    help: "Where the results will be going to (relative to the working directory field above). Example: benchmark.out" 
+
+  estimated_runtime:
+    label: "Estimated Run Time (HH:MM)"
+    help: "It will automatically determine what partition the HPC will use."
+
+  work_dir:
+    label: "Working Directory"
+    data-filepicker: true
+    cacheable: false
+    data-target-file-type: dirs  # Valid values are: files, dirs, or both
+    value: <%= ENV['HOME'] %>
+    help: "Select your project directory; if that is your home directory, leave as is. </br>DO NOT LEAVE BLANK!"
