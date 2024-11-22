@@ -1,0 +1,37 @@
+## 
+## hackademia
+## 
+
+
+application:
+  # My app name
+  name: CommodorMP
+  # My app version (x.y.z)
+  version: '1.0'
+  # short description
+  description: |
+    "Run HolyCow"
+  settings:
+    apptype:
+     # image path or module
+    appbin: docker://ghcr.io/apptainer/lolcow
+    # cmd to launch in the container
+    cmd: cowsay
+    # argument for the app
+    arg: "Commodor MachuPicchu invading $HOSTNAME"
+    # input files
+    input:
+    # output files
+    output:
+    # working directory to launch the app
+    workdir: /home/users/a/alberta
+  jobspec:
+    estimated_run_time:
+    ## number of cores
+    cpus: 1
+    # ex: ampere:2,VramPerGpu:10G
+    gpus:
+    # RAM in GB
+    ram: 2
+    # parallel if more than 1
+    ntasks: 1
