@@ -1,9 +1,9 @@
 cluster: "baobab"
 
 form: 
-{%- for setting_name, setting_value in application.settings.items() %}
-{%- if setting_value.visible %}
-  - {{ setting_name }}
+{%- for appsetting_name, appsetting_value in application.appsettings.items() %}
+{%- if appsetting_value.visible %}
+  - {{ appsetting_name }}
 {%- endif %}
 {%- endfor %}
 {%- for jobspec_name, jobspec_value in application.jobspec.items() %}
@@ -15,11 +15,11 @@ form:
 
 attributes:
 
-{%- for setting_name, setting_value in application.settings.items() %}
-  {{ setting_name }}
-  {%- for subsetting_name, subsetting_value in application.settings[setting_name].items() %}
-  {%- if subsetting_name in ["widget", "label", "help"] %}
-    {{ subsetting_name }}: {{ subsetting_value }}
+{%- for appsetting_name, appsetting_value in application.appsettings.items() %}
+  {{ appsetting_name }}
+  {%- for subappsetting_name, subappsetting_value in application.appsettings[appsetting_name].items() %}
+  {%- if subappsetting_name in ["widget", "label", "help"] %}
+    {{ subappsetting_name }}: {{ subappsetting_value }}
   {%- endif %}
   {%- endfor %}
 {%- endfor %}
