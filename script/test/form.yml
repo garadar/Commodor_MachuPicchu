@@ -3,11 +3,6 @@ cluster: "baobab"
 form:
   - input
   - output
-  - estimated_run_time
-  - cpus
-  - gpus
-  - ram
-  - nbtasks
 
 
 attributes:
@@ -23,17 +18,17 @@ attributes:
     label: Working Directory
     help: Select your project directory; if that is your home directory, leave as is. </br>DO NOT LEAVE BLANK!
   estimated_run_time
-    label: Estimated Run Time by User
-    help: Enter your estimated run time in hours.
+    label: estimated_run_time
+    help: estimated_run_time
   cpus
-    label: Working Directory
-    help: Select your project directory; if that is your home directory, leave as is. </br>DO NOT LEAVE BLANK!
+    label: cpus
+    help: cpus
   gpus
-    label: GPU
-    help: Number of GPUs.
+    label: gpus
+    help: gpus
   ram
-    label: RAM
-    help: Size of your RAM in GB.
+    label: ram
+    help: ram
   nbtasks
-    label: Number of tasks per node
-    help: Number of Tasks/Processes per Node. Defaults to 1.
+    label: nbtasks
+    help: nbtasks
