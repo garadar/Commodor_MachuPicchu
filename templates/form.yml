@@ -1,0 +1,5 @@
+salut je suis une template jinja2
+
+{{ application.name }}
+
+
