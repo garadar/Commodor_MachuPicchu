@@ -35,10 +35,12 @@ Nous allons donc aidé Jean-Phi et Josianne a lancer un jobs  avec un minimum de
 Déployer un outil pour générer des app non interactive a partir d'un fichier de config yaml qui peut être maintenu par un utilisateur plus confirmer, le tout intégrer dans notre interface OpenOnDemand.
 
 Done:
-    - [X] Session non interactive
-    - [X] Exec d' container via une SNI
-    - [X] Définition yaml config
-    - [X] Generer  fichiers de form/manifest/submit etc..pour SNI
+
+- [X] Session non interactive
+- [X] Exec d' container via une SNI
+- [X] Définition yaml config
+- [X] Generer  fichiers de form/manifest/submit etc..pour SNI
+- [ ] Générer submit.yml.erb script.sh
     
 
 
