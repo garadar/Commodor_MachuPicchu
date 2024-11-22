@@ -11,6 +11,7 @@
   if defined?(reservation) && reservation != "None"
     slurm_args = slurm_args + [ "--reservation", reservation ]
   end
+
 -%>
 
 batch_connect:
@@ -21,4 +22,4 @@ script:
   native:
   <%- slurm_args.each do |arg| %>
     - "<%= arg %>"
-  <%- end -%>
+  <%- end %>

@@ -2,11 +2,11 @@ import os
 
 
 def _generate_submit(data, output_dir, template_env):
-    template_name = 'submit.yml'
+    template_name = 'submit.yml.erb'
     template = template_env.get_template(template_name)
     form = template.render(data)
     # Écrire le résultat dans un fichier de sortie
-    output_name = 'submit.yml'
+    output_name = 'submit.yml.erb'
     output_path = os.path.join(output_dir, data['application']['name'], output_name)
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
