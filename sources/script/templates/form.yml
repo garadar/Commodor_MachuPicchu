@@ -1,0 +1,34 @@
+cluster: "baobab"
+
+form: 
+{%- for appsetting_name, appsetting_value in application.appsettings.items() %}
+{%- if appsetting_value.visible %}
+  - {{ appsetting_name }}
+{%- endif %}
+{%- endfor %}
+{%- for jobspec_name, jobspec_value in application.jobspec.items() %}
+{%- if jobspec_value.visible %}
+  - {{ jobspec_name }}
+{%- endif %}
+{%- endfor %}
+
+
+attributes:
+
+{%- for appsetting_name, appsetting_value in application.appsettings.items() %}
+  {{ appsetting_name }}:
+  {%- for subappsetting_name, subappsetting_value in application.appsettings[appsetting_name].items() %}
+  {%- if subappsetting_name in ["widget", "label", "help"] %}
+    {{ subappsetting_name }}: {{ subappsetting_value }}
+  {%- endif %}
+  {%- endfor %}
+{%- endfor %}
+{%- for jobspec_name, jobspec_value in application.jobspec.items() %}
+  {{ jobspec_name }}:
+  {%- for subjobspec_name, subjobspec_value in application.jobspec[jobspec_name].items() %}
+  {%- if subjobspec_name in ["widget", "label", "help"] %}
+    {{ subjobspec_name }}: {{ subjobspec_value }}
+  {%- endif %}
+  {%- endfor %}
+{%- endfor %}
+
