@@ -6,6 +6,11 @@ form:
   - {{ setting_name }}
 {%- endif %}
 {%- endfor %}
+{%- for jobspec_name, jobspec_value in application.jobspec.items() %}
+{%- if jobspec_value.visible %}
+  - {{ jobspec_name }}
+{%- endif %}
+{%- endfor %}
 
 
 attributes:
@@ -15,6 +20,14 @@ attributes:
   {%- for subsetting_name, subsetting_value in application.settings[setting_name].items() %}
   {%- if subsetting_name in ["widget", "label", "help"] %}
     {{ subsetting_name }}: {{ subsetting_value }}
+  {%- endif %}
+  {%- endfor %}
+{%- endfor %}
+{%- for jobspec_name, jobspec_value in application.jobspec.items() %}
+  {{ jobspec_name }}
+  {%- for subjobspec_name, subjobspec_value in application.jobspec[jobspec_name].items() %}
+  {%- if subjobspec_name in ["widget", "label", "help"] %}
+    {{ subjobspec_name }}: {{ subjobspec_value }}
   {%- endif %}
   {%- endfor %}
 {%- endfor %}
