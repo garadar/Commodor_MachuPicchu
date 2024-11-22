@@ -1,5 +1,18 @@
-salut je suis une template jinja2
+cluster: "baobab"
 
-{{ application.name }}
+form: 
+{%- for setting_name, setting_value in application.settings.items() %}
+  - {{ setting_name }}
+{%- endfor %}
 
 
+attributes:
+
+{%- for setting_name, setting_value in application.settings.items() %}
+  {{ setting_name }}
+  {%- for subsetting_name, subsetting_value in application.settings[setting_name].items() %}
+  {%- if subsetting_name in ["widget", "label", "help"] %}
+    {{ subsetting_name }}: {{ subsetting_value }}
+  {%- endif %}
+  {%- endfor %}
+{%- endfor %}
