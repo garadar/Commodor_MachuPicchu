@@ -12,5 +12,6 @@ def _generate_script(data, output_dir, template_env):
 
     with open(output_path, "w") as f:
         f.write(manifest)
+        os.chmod(output_path, stat.S_IRUSR | stat.S_IWUSR | stat.S_IXUSR)
     print(f"Le fichier a été généré : {output_path}")
     return()
