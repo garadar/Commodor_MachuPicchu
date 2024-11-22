@@ -20,12 +20,20 @@ form:
 
 
 attributes:
+  <%- if not reser_string.empty? -%>
+  reservation:
+    widget: select
+    options:
+      <%- reser_list.each do |reservation| -%>
+      - <%= reservation %>
+      <%- end -%>
+  <%- end -%>
 
   num_nodes: 
     widget: "number_field"
     label: "Number of nodes"
     help: |
-      Number of nodes (some partitions have limited amounts).    
+      Number of nodes (some partitions have limited amounts).
     min: 1
     max: 40
     step: 1
@@ -37,7 +45,7 @@ attributes:
       Number of Tasks/Processes per Node. Defaults to 1.
     min: 1
     max: 96
-    step: 1 
+    step: 1
 
   gbs_of_mem:
     widget: "number_field"
