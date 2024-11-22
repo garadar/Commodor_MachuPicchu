@@ -1,7 +1,0 @@
----
-name: {{ application.name }}
-category: Interactive Apps
-subcategory: Servers
-role: batch_connect
-description: |
-  {{ application.description }}

@@ -1,9 +1,0 @@
-Bootstrap: docker
-From: alpine:3.20.3
-Stage: build
-
-%files
-    ./app/run.sh /app/run.sh
-
-%runscript
-    sh /app/run.sh $*
