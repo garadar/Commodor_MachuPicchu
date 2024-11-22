@@ -1,7 +1,7 @@
 <%# Takes in user input for variable assignment to build the shell script. %>
 <%-
   reser_string = `scontrol --oneliner show reservations | tr ' ' '\n' | grep "ReservationName" | cut -f2 -d=`
-  reser_list = reser_string.strip.split("\n")
+  reser_string = reser_string.strip
 -%>
 
 cluster: "baobab"
@@ -20,19 +20,12 @@ form:
 
 
 attributes:
-  <%- if not reser_string.empty? -%>
-  reservation:
-    widget: select
-    options:
-    <%- reser_list.each do |reservation| -%>
-      - <%= reservation %>
-    <%- end -%>
-  <%- end -%>
-  num_nodes:
+
+  num_nodes: 
     widget: "number_field"
     label: "Number of nodes"
     help: |
-      Number of nodes (some partitions have limited amounts).
+      Number of nodes (some partitions have limited amounts).    
     min: 1
     max: 40
     step: 1
@@ -45,6 +38,7 @@ attributes:
     min: 1
     max: 96
     step: 1
+    deault: {{ application.jobspec.ntasks }}
 
   gbs_of_mem:
     widget: "number_field"
@@ -54,16 +48,24 @@ attributes:
     min: 2
     max: 890
     step: 2
+    default: {{ application.jobspec.ram }}
+
+  nb_cpu:
+    widget: "number_field"
+    label: number of cpus
+    help: |
+      "The number of cpu your jobs require"
+    default: {{ application.jobspec.cpus }}
 
   input:
     widget: "text_field"
     label: "Input File Name"
-    help: "Where the data is coming from (relative to the working directory field above). Example: benchmark.in"
+    help: "Where the data is coming from (relative to the working directory field above). Example: benchmark.in" 
 
   output:
     widget: "text_field"
     label: "Output File Name"
-    help: "Where the results will be going to (relative to the working directory field above). Example: benchmark.out"
+    help: "Where the results will be going to (relative to the working directory field above). Example: benchmark.out" 
 
   work_dir:
     label: "Working Directory"
@@ -72,3 +74,4 @@ attributes:
     data-target-file-type: dirs  # Valid values are: files, dirs, or both
     value: <%= ENV['HOME'] %>
     help: "Select your project directory; if that is your home directory, leave as is. </br>DO NOT LEAVE BLANK!"
+    default: {{ application.settings.workdir }}
