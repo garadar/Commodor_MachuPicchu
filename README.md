@@ -23,7 +23,7 @@ Je dois allouer combien de CPU ? Combien de RAM ? Combien de GPU ? Distribué ou
 ### **Read The Fucking Manual ❤️** 
 
 ## Ce qui est en place
-Interface web user friendly openondemand.baobab.unige.ch qui permets de lancer des jobs interactif (JupyterLab, Vscode Server, Stata, MatLab etc...) sur des noeuds de calcul dédier.
+Interface web user friendly [openondemand.baobab.hpc.unige.ch]https://openondemand.baobab.hpc.unige.ch) qui permets de lancer des jobs interactif (JupyterLab, Vscode Server, Stata, MatLab etc...) sur des noeuds de calcul dédier.
 
 
 ## Ce que nous voulons
