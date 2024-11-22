@@ -10,19 +10,16 @@ application:
   version: 
   # short description
   description: "A test application."
-  settings:
+  app:
     # image or module
-    # apptype:
-    #   value: apptainer
-    #   hidden: true
+    type: image
     # image path or module
-    # appbin:
-    #   value: app.sif
-    #   hidden: true
+    image: docker://
     # cmd to launch in the container (empty if default)
-    # cmd: 
-    #   value: sh run.sh input output
-    #   hidden: true
+    cmd: sh run.sh
+    # args
+    args: {input} {output}{workdir}
+  settings:
     # argument for the app
     input:
       visible: True
