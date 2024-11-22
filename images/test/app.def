@@ -6,4 +6,4 @@ Stage: build
     ./app/run.sh /app/run.sh
 
 %runscript
-    sh /app/run.sh
+    sh /app/run.sh $*
