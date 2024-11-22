@@ -3,8 +3,9 @@ import argparse
 from jinja2 import Environment, FileSystemLoader
 import yaml
 
-from generate_form import _generate_form
 from generate_manifest import _generate_manifest
+from generate_form import _generate_form
+from generate_script import _generate_script
 
 
 def getYamlAppSpec(app_spec):
@@ -32,6 +33,9 @@ def generate_file(app_spec, output_dir):
 
     # Form
     _generate_form(data, output_dir, template_env=env)
+
+    # Script
+    _generate_script(data, output_dir, template_env=env)
 
 # Définir la fonction principale pour accepter des arguments de ligne de commande
 if __name__ == "__main__":
