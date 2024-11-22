@@ -16,7 +16,7 @@ form:
 attributes:
 
 {%- for appsetting_name, appsetting_value in application.appsettings.items() %}
-  {{ appsetting_name }}
+  {{ appsetting_name }}:
   {%- for subappsetting_name, subappsetting_value in application.appsettings[appsetting_name].items() %}
   {%- if subappsetting_name in ["widget", "label", "help"] %}
     {{ subappsetting_name }}: {{ subappsetting_value }}
@@ -24,7 +24,7 @@ attributes:
   {%- endfor %}
 {%- endfor %}
 {%- for jobspec_name, jobspec_value in application.jobspec.items() %}
-  {{ jobspec_name }}
+  {{ jobspec_name }}:
   {%- for subjobspec_name, subjobspec_value in application.jobspec[jobspec_name].items() %}
   {%- if subjobspec_name in ["widget", "label", "help"] %}
     {{ subjobspec_name }}: {{ subjobspec_value }}
