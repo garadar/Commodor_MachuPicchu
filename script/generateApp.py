@@ -5,6 +5,7 @@ import yaml
 
 from generate_manifest import _generate_manifest
 from generate_form import _generate_form
+from generate_submit import _generate_submit
 from generate_script import _generate_script
 
 
@@ -36,6 +37,8 @@ def generate_file(app_spec, output_dir):
 
     # Script
     _generate_script(data, output_dir, template_env=env)
+    # Submit
+    _generate_submit(data, output_dir, template_env=env)
 
 # Définir la fonction principale pour accepter des arguments de ligne de commande
 if __name__ == "__main__":
