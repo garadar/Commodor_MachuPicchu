@@ -3,7 +3,6 @@ cluster: "baobab"
 form:
   - input
   - output
-  - workdir
 
 
 attributes:

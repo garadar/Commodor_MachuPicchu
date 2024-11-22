@@ -2,7 +2,9 @@ cluster: "baobab"
 
 form: 
 {%- for setting_name, setting_value in application.settings.items() %}
+{%- if setting_value.visible %}
   - {{ setting_name }}
+{%- endif %}
 {%- endfor %}
 
 
@@ -16,3 +18,4 @@ attributes:
   {%- endif %}
   {%- endfor %}
 {%- endfor %}
+
