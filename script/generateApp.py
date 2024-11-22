@@ -33,6 +33,9 @@ def generate_file(app_spec, output_dir):
     # Form
     _generate_form(data, output_dir, template_env=env)
 
+    # Submit
+    _generate_submit(data, output_dir, template_env=env)
+
 # Définir la fonction principale pour accepter des arguments de ligne de commande
 if __name__ == "__main__":
     # Configurer argparse pour prendre le fichier app_spec yaml en argument
