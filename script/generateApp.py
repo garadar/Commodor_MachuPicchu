@@ -1,44 +1,24 @@
 import os
 import argparse
 from jinja2 import Environment, FileSystemLoader
-import salt.client  # Le module SaltStack pour interagir avec Salt
 
-# Fonction pour récupérer les données spécifiques du pillar SaltStack
-def get_pillar_data(minion_id, key):
-    # Initialiser le client Salt
-    client = salt.client.LocalClient()
+import yaml
 
-    # Obtenir les données de tout le pillar pour ce minion
-    req= 'nodes:' + key
-    print(req)
-    pillar_data = client.cmd(minion_id, 'pillar.get', [req])
 
-    if pillar_data and minion_id in pillar_data:
-        minion_pillar = pillar_data[minion_id]
-        # Extraire seulement les clés spécifiées
-        data_to_return = {}
-        for key in keys:
-            value = minion_pillar.get(key, None)
-            print(value)
-            if value is not None:
-                data_to_return[key] = value
-            else:
-                print(f"Attention: La clé '{key}' n'existe pas dans le pillar pour {minion_id}.")
-        
-        # Vérifier si 'template_name' est présent dans le pillar
-        template_name = minion_pillar.get('template_name', None)
-        if not template_name:
-            raise ValueError(f"Aucune template spécifiée dans le pillar (clé 'template_name') pour le minion {minion_id}")
-        
-        return data_to_return, template_name
-    else:
-        raise ValueError(f"Aucune donnée de pillar trouvée pour le minion {minion_id}")
+def getYamlAppSpec(app_spec):
+
+    # Charger le fichier YAML
+    with open(app_spec, "r") as file:
+        data = yaml.safe_load(file)
+
+    return data
+
 
 # Fonction principale pour traiter la génération de fichier
-def generate_file(minion_id, key):
+def generate_file(app_spec, output_dir):
     # Récupérer les données du pillar pour les clés spécifiées et le nom de la template
     try:
-        data, template_name = get_pillar_data(minion_id, key)
+        data = getYamlAppSpec(app_spec)
     except ValueError as e:
         print(e)
         exit(1)
@@ -48,6 +28,7 @@ def generate_file(minion_id, key):
     env = Environment(loader=FileSystemLoader(template_dir))
 
     # Charger la template spécifiée dans le pillar
+    template_name = 'form.yml'
     try:
         template = env.get_template(template_name)
     except Exception as e:
@@ -55,10 +36,12 @@ def generate_file(minion_id, key):
         exit(1)
 
     # Rendre le template avec les données du pillar
+
     rendu = template.render(data)
 
     # Écrire le résultat dans un fichier de sortie
-    output_path = os.path.join("output", f"{minion_id}_config.txt")
+    output_name = 'my_new_form.yml'
+    output_path = os.path.join(output_dir, data['application']['name'], output_name)
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
     with open(output_path, "w") as f:
@@ -68,14 +51,14 @@ def generate_file(minion_id, key):
 
 # Définir la fonction principale pour accepter des arguments de ligne de commande
 if __name__ == "__main__":
-    # Configurer argparse pour prendre le minion_id et les clés du pillar en argument
-    parser = argparse.ArgumentParser(description="Générer un fichier à partir des données du pillar SaltStack et d'un template Jinja2.")
-    parser.add_argument('minion_id', type=str, help="Le minion_id pour récupérer les données du pillar")
-    parser.add_argument('key', type=str, help="Les clés spécifiques du pillar à récupérer (ex: grains.id pillar.roles)")
+    # Configurer argparse pour prendre le fichier app_spec yaml en argument
+    parser = argparse.ArgumentParser(description="Générer une application OOD en utilisant un fichier app_spec et un  template Jinja2.")
+    parser.add_argument('app_spec', type=str, help="Chemin vers le fichier app_spec au format yaml")
+    parser.add_argument('output_dir', type=str, help="Chemin vers le répertoire de sortie")
 
     # Lire les arguments
     args = parser.parse_args()
 
     # Appeler la fonction principale avec le minion_id et les clés du pillar
-    generate_file(args.minion_id, args.key)
+    generate_file(args.app_spec, args.output_dir)
 
