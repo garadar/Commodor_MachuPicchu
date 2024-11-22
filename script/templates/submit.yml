@@ -21,5 +21,5 @@ script:
   native:
   <%- slurm_args.each do |arg| %>
     - "<%= arg %>"
-  <%- end %>
+  <%- end -%>
 
