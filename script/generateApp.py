@@ -1,16 +1,16 @@
 import os
 import argparse
 from jinja2 import Environment, FileSystemLoader
-
 import yaml
+
+from generate_form import _generate_form
+from generate_manifest import _generate_manifest
 
 
 def getYamlAppSpec(app_spec):
-
     # Charger le fichier YAML
     with open(app_spec, "r") as file:
         data = yaml.safe_load(file)
-
     return data
 
 
@@ -21,33 +21,17 @@ def generate_file(app_spec, output_dir):
         data = getYamlAppSpec(app_spec)
     except ValueError as e:
         print(e)
-        exit(1)
+        raise(e)
 
     # Configuration de Jinja2 pour charger des templates à partir d'un dossier
     template_dir = "templates"  # Dossier où se trouvent les templates
     env = Environment(loader=FileSystemLoader(template_dir))
 
-    # Charger la template spécifiée dans le pillar
-    template_name = 'form.yml'
-    try:
-        template = env.get_template(template_name)
-    except Exception as e:
-        print(f"Erreur lors du chargement de la template '{template_name}': {e}")
-        exit(1)
+    # Manifest
+    _generate_manifest(data, output_dir, template_env=env)
 
-    # Rendre le template avec les données du pillar
-
-    rendu = template.render(data)
-
-    # Écrire le résultat dans un fichier de sortie
-    output_name = 'my_new_form.yml'
-    output_path = os.path.join(output_dir, data['application']['name'], output_name)
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
-
-    with open(output_path, "w") as f:
-        f.write(rendu)
-
-    print(f"Le fichier a été généré : {output_path}")
+    # Form
+    _generate_form(data, output_dir, template_env=env)
 
 # Définir la fonction principale pour accepter des arguments de ligne de commande
 if __name__ == "__main__":
