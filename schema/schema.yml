@@ -1,0 +1,37 @@
+## 
+## hackademia
+## 
+
+
+application:
+  # My app name
+  name: 
+  # My app version (x.y.z)
+  version: 
+  # short description
+  description: 
+  settings:
+    # image or module
+    apptype:
+     # image path or module
+    appbin:
+    # cmd to launch in the container
+    cmd: 
+    # argument for the app
+    arg: 
+    # input files
+    input:
+    # output files
+    output:
+    # working directory to launch the app
+    workdir:
+  jobspec:
+    estimated_run_time:
+    ## number of cores
+    cpus:
+    # ex: ampere:2,VramPerGpu:10G
+    gpus:
+    # RAM in GB
+    ram:
+    # parallel if more than 1
+    nbtasks:
