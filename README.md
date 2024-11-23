@@ -1,8 +1,8 @@
 # Faciliter l'accès au HPC pour les utilisateur·trice·s non spécialistes (Hackademia, UNIGE)
 
-<p align="center">
+<p>
     <a href="https://www.youtube.com/watch?v=wlp9px83dVA">
-    <img src="https://edutechwiki.unige.ch/fmediawiki/images/1/1e/Hackademia_2024_vf.png" alt="Hackademia quote" width="500"/>
+    <img src="https://edutechwiki.unige.ch/fmediawiki/images/1/1e/Hackademia_2024_vf.png" alt="Hackademia thumbail to YT" margin-left="auto" margin-right="auto" width="50%"/>
     </a>
 </p>
 
