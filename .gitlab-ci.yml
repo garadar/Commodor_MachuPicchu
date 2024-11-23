@@ -15,7 +15,7 @@ process_script:
     - pip3 install -r sources/script/requirements.txt
     # Run
     - python3 sources/script/generate_app.py sources/config .
-  artifact:
+  artifacts:
      paths: .
   only:
     - main  # Trigger the pipeline only on main branch updates
