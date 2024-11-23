@@ -9,6 +9,7 @@ process_script:
     - git pull origin main
     - "[[ -z $(git branch -d ood) ]] && git branch -D ood"
     - git checkout -b ood
+    - git branch --set-upstream-to ood
     # install dependencies
     - python3 --version  # Check Python version
     - pip3 install -r sources/script/requirements.txt
@@ -20,6 +21,6 @@ process_script:
     - git status
     - git remote -v
     - git commit -m "build"
-    - git push --set-upstream odd ${CI_REPOSITORY_URL}
+    - git push
   only:
     - main  # Trigger the pipeline only on main branch updates
