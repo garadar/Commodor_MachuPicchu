@@ -4,6 +4,8 @@ apptainer exec {{application.app.image}} {{application.app.cmd}} \
     {%- for appsetting_name, appsetting_value in application.appsettings.items() %}
         {% if "command-line-flag" in application.appsettings[appsetting_name].keys() %}
             {{application.appsettings[appsetting_name]["command-line-flag"]}} <%= context.{{appsetting_name}} %> \
+        {% else %}
+            <%= context.{{appsetting_name}} %> \
         {% endif %}
     {%- endfor %}
   
