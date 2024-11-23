@@ -30,9 +30,10 @@ application:
       visible: True
       widget: "text_field"
       label: "Output File Name"
-      help: "Where the results will be going to (relative to the working directory field above)." 
+      help: "Where the results will be going to (relative to the working directory field above)."
     # working directory to launch the app
     workdir:
+      command-line-flag: "-w"
       value: /app
       visible: True
       label: "Working Directory"
