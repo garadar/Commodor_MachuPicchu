@@ -1,5 +1,5 @@
 """Module generating the app using generate manifest/form/submit/script."""
-
+import os
 import argparse
 from jinja2 import Environment, FileSystemLoader
 import yaml
@@ -27,7 +27,7 @@ def generate_file(app_spec, output_dir):
         raise e
 
     # Configuration de Jinja2 pour charger des templates à partir d'un dossier
-    template_dir = "templates"  # Dossier où se trouvent les templates
+    template_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "templates")  # Dossier où se trouvent les templates
     env = Environment(loader=FileSystemLoader(template_dir))
 
     # Manifest
