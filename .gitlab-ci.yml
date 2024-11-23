@@ -7,14 +7,14 @@ process_script:
     # checkout
     - git checkout main
     - git pull origin main
+    - "[[ -z $(git branch -d ood) ]] && git branch destroy ood || git checkout ood"
+    - git checkout -b ood
     # install dependencies
     - python3 --version  # Check Python version
     - pip3 install -r sources/script/requirements.txt
-    # run
-    - "[[ -z $(git branch -l ood) ]] && git checkout -b ood || git checkout ood"
-    - git merge main
-    - git branch
+    # Run
     - python3 sources/script/generate_app.py sources/config .
+
     # push
     - git status
     - git add .  # Stage changes
