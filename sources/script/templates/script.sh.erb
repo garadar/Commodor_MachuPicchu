@@ -1,4 +1,9 @@
 #!/bin/bash
 
-apptainer exec {{application.app.image}} {{application.app.cmd}} <%= context.input %>
+apptainer exec {{application.app.image}} {{application.app.cmd}} \
+    {%- for appsetting_name, appsetting_value in application.appsettings.items() %}
+        <%= context.{{subappsetting_name}} %> \
+    {%- endfor %}
+  
+  
 
