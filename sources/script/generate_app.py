@@ -56,5 +56,5 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # Appeler la fonction principale avec le minion_id et les clés du pillar
-    app_spec = args.app_spec_dir + "/config.yml"
+    app_spec = args.app_spec_dir + "/config.yaml"
     generate_file(app_spec, args.output_dir)
