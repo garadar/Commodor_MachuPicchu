@@ -8,8 +8,8 @@ process_script:
     - git checkout main
     - git pull origin main 
     # install dependencies
-    - python --version  # Check Python version
-    - pip install -r sources\script\requirements.txt
+    - python3 --version  # Check Python version
+    - pip3 install -r sources\script\requirements.txt
     # run
     - "[[ -z $(git branch -l ood) ]] && git checkout -b ood || git checkout ood"
     - git branch
