@@ -77,5 +77,5 @@ Permet de booster la recherche en mettant en commun les ressources de calcul
 - [X] Exec  container via une SNI
 - [X] Définition yaml config
 - [X] Générer  fichiers de form/manifest/submit etc..pour SNI
-- [ ] Générer submit.yml.erb script.sh
-- [ ] intégration continue gitlab (+ container registry) etc...
+- [X] Générer submit.yml.erb script.sh
+- [X] intégration continue gitlab (+ container registry) etc...
