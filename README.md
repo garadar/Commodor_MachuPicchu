@@ -1,12 +1,12 @@
 # Faciliter l'accès au HPC pour les utilisateur·trice·s non spécialistes (Hackademia, UNIGE)
 
-<p>
+<p align="center">
     <a href="https://www.youtube.com/watch?v=wlp9px83dVA">
-    <img src="https://edutechwiki.unige.ch/fmediawiki/images/1/1e/Hackademia_2024_vf.png" alt="Hackademia thumbail to YT" margin-left="auto" margin-right="auto" width="50%"/>
+    <img src="https://edutechwiki.unige.ch/fmediawiki/images/1/1e/Hackademia_2024_vf.png" alt="Hackademia quote" width="500">
     </a>
 </p>
 
-➡️ 22-23 novembre 2025 à l'UNIGE (https://www.unige.ch/hackademia/)
+22-23 novembre 2025 à l'UNIGE (https://www.unige.ch/hackademia/)
 
 # Contexte
 
