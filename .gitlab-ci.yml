@@ -13,7 +13,7 @@ process_script:
     # run
     - python sources\script\generate_app.py sources\config .
     # push
-    - git checkout -b ood  # Create or switch to the target branch
+    - git checkout ood  # Create or switch to the target branch
     - git add .  # Stage changes
     - git commit -m "build"
     - git push -u origin ood  # Push to the target branch
