@@ -12,6 +12,7 @@ process_script:
     - pip install -r sources\script\requirements.txt
     # run
     - [[-z $(git branch -l ood) ]] && git checkout -b ood || git checkout ood
+    - git branch
     - python sources\script\generate_app.py sources\config .
     # push
     - git add .  # Stage changes
