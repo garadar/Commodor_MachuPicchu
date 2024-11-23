@@ -11,9 +11,9 @@ process_script:
     - python --version  # Check Python version
     - pip install -r sources\script\requirements.txt
     # run
+    - [[-z $(git branch -l ood) ]] && git checkout -b ood || git checkout ood
     - python sources\script\generate_app.py sources\config .
     # push
-    - git checkout ood  # Create or switch to the target branch
     - git add .  # Stage changes
     - git status
     - git commit -m "build"
