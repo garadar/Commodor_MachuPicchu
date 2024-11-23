@@ -28,4 +28,6 @@ jobs:
         git pull origin main
         python --version 
         python sources/script/generate_app.py sources/config .
+        git add .
+        git commit -m "build"
         git push
