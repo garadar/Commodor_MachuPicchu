@@ -21,6 +21,6 @@ process_script:
     - git status
     - git remote -v
     - git commit -m "build"
-    - git push
+    - git push --set-upstream origin ood
   only:
     - main  # Trigger the pipeline only on main branch updates
