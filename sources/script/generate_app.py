@@ -1,4 +1,5 @@
-import os
+"""Module generating the app using generate manifest/form/submit/script."""
+
 import argparse
 from jinja2 import Environment, FileSystemLoader
 import yaml
@@ -9,21 +10,21 @@ from generate_submit import _generate_submit
 from generate_script import _generate_script
 
 
-def getYamlAppSpec(app_spec):
-    # Charger le fichier YAML
-    with open(app_spec, "r") as file:
+def get_yaml_app_spec(app_spec):
+    """Charger le fichier YAML."""
+    with open(app_spec, "r", encoding="utf-8") as file:
         data = yaml.safe_load(file)
     return data
 
 
-# Fonction principale pour traiter la génération de fichier
 def generate_file(app_spec, output_dir):
+    """Fonction principale pour traiter la génération de fichier."""
     # Récupérer les données du pillar pour les clés spécifiées et le nom de la template
     try:
-        data = getYamlAppSpec(app_spec)
+        data = get_yaml_app_spec(app_spec)
     except ValueError as e:
         print(e)
-        raise(e)
+        raise e
 
     # Configuration de Jinja2 pour charger des templates à partir d'un dossier
     template_dir = "templates"  # Dossier où se trouvent les templates
@@ -37,6 +38,7 @@ def generate_file(app_spec, output_dir):
 
     # Script
     _generate_script(data, output_dir, template_env=env)
+
     # Submit
     _generate_submit(data, output_dir, template_env=env)
 
@@ -52,4 +54,3 @@ if __name__ == "__main__":
 
     # Appeler la fonction principale avec le minion_id et les clés du pillar
     generate_file(args.app_spec, args.output_dir)
-

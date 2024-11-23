@@ -43,6 +43,9 @@ Tasks:
 - [X] Générer  fichiers de form/manifest/submit etc..pour SNI
 - [ ] Générer submit.yml.erb script.sh
 - [ ] intégration continue gitlab (+ container registry) etc...
+- [ ] 
+- [ ] 
+- [ ] 
     
 
 
