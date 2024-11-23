@@ -1,7 +1,7 @@
 # Description
 
 The config directory **must** contains:
-- A `config.yaml` with all project configuration
-- An `icon.png` for your app
+-  `config.yaml` with all project configuration
+-  `icon.png` for your app
 
 Refer to `config.yaml.example` to build your config.yaml 
