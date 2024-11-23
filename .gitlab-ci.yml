@@ -9,11 +9,11 @@ process_script:
     - git pull origin main 
     # install dependencies
     - python3 --version  # Check Python version
-    - pip3 install -r sources\script\requirements.txt
+    - pip3 install -r sources/script/requirements.txt
     # run
     - "[[ -z $(git branch -l ood) ]] && git checkout -b ood || git checkout ood"
-    - git branch #
-    - python3 sources\script\generate_app.py sources\config .
+    - git branch
+    - python3 sources/script/generate_app.py sources/config .
     # push
     - git add .  # Stage changes
     - git status
