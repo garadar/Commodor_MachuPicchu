@@ -11,8 +11,3 @@ A simple example form for Tennessee Tech University's HPC Research Computing and
 ![NAMD_Form](figures/NAMD_Form.PNG)
 
 ![NAMD_Running](figures/NAMD_Running.PNG)
-
-
-
-
-
