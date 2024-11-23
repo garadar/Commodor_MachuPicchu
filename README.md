@@ -1,5 +1,7 @@
 <p align="center">
-  <img src="https://edutechwiki.unige.ch/fmediawiki/images/1/1e/Hackademia_2024_vf.png" alt="Hackademia quote"/><a href="https://www.youtube.com/watch?v=wlp9px83dVA">
+    <a href="https://www.youtube.com/watch?v=wlp9px83dVA">
+    <img src="https://edutechwiki.unige.ch/fmediawiki/images/1/1e/Hackademia_2024_vf.png" alt="Hackademia quote"/>
+    </a>
 </p>
 
 # Faciliter l'accès au HPC pour les utilisateur·trice·s non spécialistes (Hackademia, UNIGE)
