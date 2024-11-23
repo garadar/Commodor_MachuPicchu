@@ -16,6 +16,7 @@ process_script:
     # Run
     - python3 sources/script/generate_app.py sources/config .
   artifacts:
-     paths: .
+     paths: 
+      - "./"
   only:
     - main  # Trigger the pipeline only on main branch updates
