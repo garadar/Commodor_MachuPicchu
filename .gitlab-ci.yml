@@ -16,6 +16,7 @@ process_script:
     - python3 sources/script/generate_app.py sources/config .
     # push
     - ls
+    - git status
     - git add .  # Stage changes
     - git status
     - git remote -v
