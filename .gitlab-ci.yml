@@ -7,14 +7,13 @@ process_script:
     # checkout
     - git checkout main
     - git pull origin main
-    - "[[ -z $(git branch -d ood) ]] && git branch -D ood"
-    - git checkout -b ood
-    - git remote set-url origin ${CI_REPOSITORY_URL}
     # install dependencies
     - python3 --version  # Check Python version
     - pip3 install -r sources/script/requirements.txt
     # Run
     - python3 sources/script/generate_app.py sources/config .
+    # Push
+    - git push
   artifacts:
      paths: 
       - "./"
