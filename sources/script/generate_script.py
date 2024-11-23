@@ -14,6 +14,7 @@ def _generate_script(data, output_dir, template_env):
 
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(manifest)
-        subprocess.run(['chmod', 'u+x', output_path], check=True)
+        if not os.name == 'nt':
+            subprocess.run(['chmod', 'u+x', output_path], check=True)
     print(f"Le fichier a été généré : {output_path}")
     return()
