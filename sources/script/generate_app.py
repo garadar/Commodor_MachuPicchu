@@ -8,6 +8,7 @@ from generate_manifest import _generate_manifest
 from generate_form import _generate_form
 from generate_submit import _generate_submit
 from generate_script import _generate_script
+from copy_icon import _copy_icon
 
 
 def get_yaml_app_spec(app_spec):
@@ -49,12 +50,12 @@ def generate_file(app_spec, output_dir):
 if __name__ == "__main__":
     # Configurer argparse pour prendre le fichier app_spec yaml en argument
     parser = argparse.ArgumentParser(description="Générer une application OOD en utilisant un fichier app_spec et un  template Jinja2.")
-    parser.add_argument('app_spec_dir', type=str, help="Chemin vers le répertoire  app_spec au format yaml")
+    parser.add_argument('app_spec_dir', type=str, help="Chemin vers le répertoire  app_spec au format .yml")
     parser.add_argument('output_dir', type=str, help="Chemin vers le répertoire de sortie")
 
     # Lire les arguments
     args = parser.parse_args()
 
     # Appeler la fonction principale avec le minion_id et les clés du pillar
-    app_spec = args.app_spec_dir + "/config.yaml"
+    app_spec = args.app_spec_dir + "/config.yml"
     generate_file(app_spec, args.output_dir)
