@@ -2,7 +2,7 @@
 
 apptainer exec {{application.app.image}} {{application.app.cmd}} \
     {%- for appsetting_name, appsetting_value in application.appsettings.items() %}
-        <%= context.{{subappsetting_name}} %> \
+        <%= context.{{appsetting_name}} %> \
     {%- endfor %}
   
   
