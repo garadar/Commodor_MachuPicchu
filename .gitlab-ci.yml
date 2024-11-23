@@ -6,7 +6,7 @@ process_script:
   script:
     # checkout
     - git checkout main
-    - git pull origin main 
+    - git pull origin main
     # install dependencies
     - python3 --version  # Check Python version
     - pip3 install -r sources/script/requirements.txt
@@ -22,5 +22,8 @@ process_script:
     - git remote -v
     - git commit -m "build"
     - git push -u origin ood  # Push to the target branch
+  artifacts:
+    paths:
+      - .
   only:
     - main  # Trigger the pipeline only on main branch updates
