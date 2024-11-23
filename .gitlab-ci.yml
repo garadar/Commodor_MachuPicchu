@@ -15,12 +15,7 @@ process_script:
     - pip3 install -r sources/script/requirements.txt
     # Run
     - python3 sources/script/generate_app.py sources/config .
-    # push
-    - git status
-    - git add .  # Stage changes
-    - git status
-    - git remote -v
-    - git commit -m "build"
-    - git push --set-upstream origin ood
+  artifact:
+     paths: .
   only:
     - main  # Trigger the pipeline only on main branch updates
