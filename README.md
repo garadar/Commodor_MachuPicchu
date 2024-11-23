@@ -27,7 +27,7 @@ Permet de booster la recherche en mettant en commun les ressources de calcul
 
 - Des utilisateur·trice·s en perdition devant un terminal linux avec un projet à rendre pour hier.
 
-- "Je dois allouer combien de CPU ? Combien de RAM ? Combien de GPU ? Distribué ou  Multithreading (ou pas) ? Comment on fait pour se connecter?" 🤯 (➡️ **Read The Fucking Manual ❤️**)
+- "Je dois allouer combien de CPU ? Combien de RAM ? Combien de GPU ? Distribué ou  Multithreading (ou pas) ? Comment on fait pour se connecter?" 🤯 ➡️ **Read The Fucking Manual ❤️**
 
 ## Ce que nous avons
 
@@ -43,8 +43,11 @@ Permet de booster la recherche en mettant en commun les ressources de calcul
 
 # Dev
 
+➡️ Suivre les README.md sous chaque directory
+
 ## Tree
 
+`````
 .
 ├── README.md
 ├── .gitlab-ci.yml `CI utilisant un runner GitLab`
@@ -66,8 +69,7 @@ Permet de booster la recherche en mettant en commun les ressources de calcul
             ├── manifest.yml
             ├── script.sh.erb
             └── submit.yml.erb
-
-➡️ Suivre les README.md sous chaque directory
+`````
 
 # To-do list
 
