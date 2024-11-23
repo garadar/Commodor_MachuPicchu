@@ -1,0 +1,69 @@
+######
+## My description
+######
+
+application:
+  # My app name
+  name: test
+  # My app version (x.y.z)
+  version: 
+  # My short description
+  description: "A test application."
+  app: # MANDATORY, not visible
+    # image or module
+    type: image
+    # image path or module
+    image:  docker://docker/whalesay
+    # cmd to launch in the container (empty if default)
+    cmd: cowsay 
+    # args (ruby format)
+    args: "#{input}"
+  appsettings: # MANDATORY, visible in form.yml, entirely customizable
+    # argument for the app
+    input:
+      visible: True
+      widget: "text_field"
+      label: "Input File Name"
+      help: "Where the data is coming from (relative to the working directory field above)." 
+    output:
+      visible: True
+      widget: "text_field"
+      label: "Output File Name"
+      help: "Where the results will be going to (relative to the working directory field above)." 
+    # working directory to launch the app
+    workdir:
+      visible: True
+      value: /app
+      label: "Working Directory"
+      help: "Select your project directory; if that is your home directory, leave as is."
+  jobspec: # MANDATORY, visible in form.yml, entirely customizable
+    # s
+    estimated_run_time:
+      visible: False
+      value: 30
+      label: "estimated_run_time"
+      help: "estimated_run_time"
+    # number of cores
+    cpus:
+      visible: False
+      value: 1
+      label: "cpus"
+      help: "cpus"
+    # ex: ampere:2,VramPerGpu:10G
+    gpus:
+      visible: False
+      value: 0
+      label: "gpus"
+      help: "gpus"
+    # RAM in GB
+    ram:
+      visible: False
+      value: 1
+      label: "ram"
+      help: "ram"
+    # parallel if more than 1
+    nbtasks:
+      visible: False
+      value: 1
+      label: "nbtasks"
+      help: "nbtasks"
