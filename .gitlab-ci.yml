@@ -15,6 +15,7 @@ process_script:
     # push
     - git checkout ood  # Create or switch to the target branch
     - git add .  # Stage changes
+    - git status
     - git commit -m "build"
     - git push -u origin ood  # Push to the target branch
   only:
