@@ -27,5 +27,5 @@ jobs:
         git checkout main
         git pull origin main
         python --version 
-        python sources/script/generate_app.py sources/config
+        python sources/script/generate_app.py sources/config .
         git push
