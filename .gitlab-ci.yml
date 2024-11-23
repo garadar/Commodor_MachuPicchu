@@ -17,6 +17,7 @@ process_script:
     # push
     - git add .  # Stage changes
     - git status
+    - git remote -v
     - git commit -m "build"
     - git push -u origin ood  # Push to the target branch
   only:
