@@ -11,7 +11,7 @@ process_script:
     - python --version  # Check Python version
     - pip install -r sources\script\requirements.txt
     # run
-    - python sources\script\generateApp.py  # Run your Python script
+    - python sources\script\generate_app.py  # Run your Python script
     - git checkout -b ood  # Create or switch to the target branch
     - git add .  # Stage changes
     - git commit -m "build"
