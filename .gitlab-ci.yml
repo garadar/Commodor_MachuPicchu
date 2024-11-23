@@ -12,6 +12,8 @@ process_script:
     - pip install -r sources\script\requirements.txt
     # run
     - python sources\script\generate_app.py sources\config .
+    # push
+    - git remote add origin ${CI_REPOSITORY_URL}
     - git checkout -b ood  # Create or switch to the target branch
     - git add .  # Stage changes
     - git commit -m "build"
