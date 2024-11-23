@@ -21,6 +21,14 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         if [ -f sources/script/requirements.txt ]; then pip install -r sources/script/requirements.txt; fi
+    - name: Delete 'ood' branch if it exists
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        git fetch origin
+        if git show-ref --verify --quiet refs/remotes/origin/ood; then
+          git push origin --delete ood
+        fi
     - name: Build application
       run: |
         python --version
