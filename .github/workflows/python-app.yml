@@ -26,8 +26,6 @@ jobs:
         python -m pip3 install --upgrade pip
         pip install  
         if [ -f sources/script/requirements.txt ]; then pip install -r requirements.txt; fi
-    - exec: |
-      run: |
         git checkout main
         git pull origin main
         python3 --version 
