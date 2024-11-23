@@ -1,4 +1,4 @@
 #!/bin/bash
 
-apptainer exec {{application.app.image}} {{application.app.cmd}} hello
+apptainer exec {{application.app.image}} {{application.app.cmd}} <%= context.input %>
 
