@@ -1,3 +1,5 @@
+"""Module generating script.sh.erb."""
+
 import os
 import subprocess
 
@@ -10,7 +12,7 @@ def _generate_script(data, output_dir, template_env):
     output_path = os.path.join(output_dir, data['application']['name'], 'template', output_name)
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
-    with open(output_path, "w") as f:
+    with open(output_path, "w", encoding="utf-8") as f:
         f.write(manifest)
         subprocess.run(['chmod', 'u+x', output_path], check=True)
     print(f"Le fichier a été généré : {output_path}")
