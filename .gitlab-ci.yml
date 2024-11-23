@@ -12,6 +12,7 @@ process_script:
     - pip3 install -r sources/script/requirements.txt
     # run
     - "[[ -z $(git branch -l ood) ]] && git checkout -b ood || git checkout ood"
+    - git merge main
     - git branch
     - python3 sources/script/generate_app.py sources/config .
     # push
