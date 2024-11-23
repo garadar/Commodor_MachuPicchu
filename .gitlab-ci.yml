@@ -1,10 +1,20 @@
-stages:          # List of stages for jobs, and their order of execution
-  - build
+stages:
+  - process
 
-build-job:       # This job runs in the build stage, which runs first.
-  stage: build
+process_script:
+  stage: process
   script:
-    - echo "Compiling the code..."
-    - echo "Compile complete."
-  tags:
-    - ken-local
+    # checkout
+    - git checkout main
+    - git pull origin main 
+    # install dependencies
+    - python --version  # Check Python version
+    - pip install -r sources\script\requirements.txt
+    # run
+    - python sources\script\generateApp.py  # Run your Python script
+    - git checkout -b ood  # Create or switch to the target branch
+    - git add .  # Stage changes
+    - git commit -m "build"
+    - git push -u origin ood  # Push to the target branch
+  only:
+    - main  # Trigger the pipeline only on main branch updates
