@@ -50,12 +50,12 @@ Permet de booster la recherche en mettant en commun les ressources de calcul
 `````
 .
 ├── README.md
-├── .gitlab-ci.yml `CI utilisant un runner GitLab`
+├── .gitlab-ci.yml //CI utilisant un runner GitLab
 └── sources
     ├── README.md
-    ├── config `dir contenant les fichiers de configuration du/de la mainteneur·e`
-    │   ├── config_example.yml `suivre les instructions dans le config_example.yml et renommer en config.yml`
-    └── script `dir contenant les scripts python pour transformer le config.yml en quatre yml et erb files sous templates`
+    ├── config //dir contenant les fichiers de configuration du/de la mainteneur·e
+    │   ├── config_example.yml //suivre les instructions dans le config_example.yml et renommer en config.yml
+    └── script //dir contenant les scripts python pour transformer le config.yml en quatre yml et erb files sous templates
         ├── README.md
         ├── __init__.py
         ├── generate_app.py
@@ -64,7 +64,7 @@ Permet de booster la recherche en mettant en commun les ressources de calcul
         ├── generate_script.py
         ├── generate_submit.py
         ├── requirements.txt
-        └── templates `outputs de generate_app.py`
+        └── templates //outputs de generate_app.py
             ├── form.yml
             ├── manifest.yml
             ├── script.sh.erb
