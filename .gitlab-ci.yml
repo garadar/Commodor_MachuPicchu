@@ -22,6 +22,6 @@ process_script:
     - git status
     - git remote -v
     - git commit -m "build"
-    - git push -u origin ood  # Push to the target branch
+    - git push
   only:
     - main  # Trigger the pipeline only on main branch updates
