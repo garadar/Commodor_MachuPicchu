@@ -12,8 +12,9 @@ permissions:
 
 jobs:
   build:
-
-    runs-on: rocky-latest
+    runs-on: ubuntu-latest
+    container:
+      image: rockylinux/rockylinux:9
 
     steps:
     - uses: actions/checkout@v4
